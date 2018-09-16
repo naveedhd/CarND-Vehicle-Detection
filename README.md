@@ -15,14 +15,6 @@ The goals / steps of this project are the following:
 * Run your pipeline on a video stream (start with the test_video.mp4 and later implement on full project_video.mp4) and create a heat map of recurring detections frame by frame to reject outliers and follow detected vehicles.
 * Estimate a bounding box for vehicles detected.
 
-[//]: # (Image References)
-[image1]: ./output_images/vehicle-non-vehicle.png
-[image2]: ./output_images/hog.png
-[image3]: /output_images/hog-heat.png
-[image4]: /output_images/subsamling.png
-[video1]: ./project_video_output.mp4
-
-
 ---
 
 ### Histogram of Oriented Gradients (HOG)
@@ -35,11 +27,11 @@ The number of vehicle images and non-vehicle images are `8792` and `8968` respec
 
 Following are few examples of vehicle and non-vehicle images:
 
-![vehicles-nonvehicles][image1]
+![vehicles-nonvehicles](output_images/vehicle-nonvehicle.png)
 
 The Histogram features extraction functions are `In[5]`. Below is an example of HOG features on a random image from vehicle and non-vehicle images:
 
-![hog][image2]
+![hog](output_images/hog.png)
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
@@ -69,19 +61,20 @@ The `LinearSVC` classifier is trained `In[7]` which took around `35 seconds` to 
 The sliding window approach is implemented `In[9]` and `In[10]` of the notebook. To filter out false positive, I used heatmap as described in Udacity course to filter some out. Following is an example output of sliding window alongwith heatmap filtering:
 
 
-![hog-heat][image3]
+![hog-heat](output_images/hog-heat.png)
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
 The performance of the method calculating HOG on each particular window was slow. To improve the processing performance, a HOG sub-sampling was implemented as suggested on Udacity's lectures. The implementation of this method could be found on `In [14]`. The following image shows the results applied to the test images (the same heatmap and threshold procedure was applied as well on `In [15]`):
 
-![subsampling][image4]
+![subsampling](output_images/subsampling.png)
+
 ---
 
 ### Video Implementation
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-The video output can be found in project directory named `project_video_output.mp4`. Here's a [link to my video result](./project_video_output.mp4)
+The video output can be found in project directory named `project_video_output.mp4`. Here's a [link to my video result](project_video_output.mp4)
 
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
