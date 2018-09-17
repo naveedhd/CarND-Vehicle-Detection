@@ -79,7 +79,7 @@ The video output can be found in project directory named `project_video_output.m
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
-In the pipeline, there is heatmap and thresholding methods for filtering but it does not seem enough.
+In the pipeline, I have used subsampling and heatmaps. As pointed out in review, I have included a small window of frames of heatmap and applied thesholding to filter out any spurious detections. This helped remove a lot of false positives.
 
 ---
 
